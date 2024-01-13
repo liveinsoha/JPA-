@@ -12,20 +12,22 @@ public class Movie extends Item {
     String director;
     String genre;
 
-    public String getDirector() {
-        return director;
+    protected Movie() {
     }
 
-    public void setDirector(String director) {
+    public Movie(String director, String genre, int price) {
         this.director = director;
+        this.genre = genre;
+        super.price = price;
+    }
+
+    public String getDirector() {
+        return director;
     }
 
     public String getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
 
 }

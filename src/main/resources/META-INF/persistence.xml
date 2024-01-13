@@ -14,7 +14,7 @@
             <property name="hibernate.show_sql" value="true"/> <!--sql보여준다-->
             <property name="hibernate.format_sql" value="true"/> <!--sql 포맷팅해서 보여준다-->
             <property name="hibernate.use_sql_comments" value="true"/> <!--코멘트-->
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 </persistence>

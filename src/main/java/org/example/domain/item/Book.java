@@ -10,19 +10,22 @@ public class Book extends Item {
     String author;
     String isbn;
 
-    public String getIsbn() {
-        return isbn;
+    protected Book() {
     }
 
-    public void setIsbn(String isbn) {
+    public Book(String author, String isbn, int price) {
+        this.author = author;
         this.isbn = isbn;
+        super.price = price;
+    }
+
+    public String getIsbn() {
+        return isbn;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+
 }

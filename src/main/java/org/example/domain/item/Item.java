@@ -14,6 +14,22 @@ public abstract class Item {
 
     int price;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     /**
      * 부모클래스로 조회가 가능하다.
      */

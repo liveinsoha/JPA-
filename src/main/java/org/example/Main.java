@@ -1,15 +1,15 @@
 package org.example;
 
 import org.example.domain.*;
+import org.example.domain.embeddable.Address;
 import org.example.domain.item.Album;
 import org.example.domain.item.Book;
+import org.example.domain.item.Item;
 import org.example.domain.item.Movie;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,31 +26,34 @@ public class Main {
 
         try {
 
-            Parent parent = new Parent();
-            parent.setName("JIM");
-
-            Child child1 = new Child();
-            child1.setName("aaa");
-
-            Child child2 = new Child();
-            child2.setName("bbb");
-
-            parent.getChildren().add(child1);
-            parent.getChildren().add(child2);
-            child1.setParent(parent);
-            child2.setParent(parent);
-
-            em.persist(parent);
+            Book book = new Book("QQQ", "WWW", 1000);
+            Album album = new Album("AAA", 2000);
+            Movie movie = new Movie("ZZZ", "XXX", 3000);
+            em.persist(book);
+            em.persist(album);
+            em.persist(movie);
 
             em.flush();
             em.clear();
 
-            Parent findParent = em.find(Parent.class, parent.getId());
-            findParent.getChildren().remove(0);
+            String jpql = "delete from Item i where i.price <= :price";
+            int lines = em.createQuery(jpql)
+                    .setParameter("price", 1000)
+                    .executeUpdate();
 
-            em.flush();
-            em.clear();
+            System.out.println("lines = " + lines);
 
+
+
+          /*  Item item1 =  em.find(Item.class, book.getId());
+            Item item2 =  em.find(Item.class, album.getId());
+            Item item3 =  em.find(Item.class, movie.getId());
+
+            sout*/
+
+           /* item1.setPrice(10000);
+            item2.setPrice(20000);
+            item3.setPrice(30000);*/
 
             tx.commit();
         } catch (Exception e) {

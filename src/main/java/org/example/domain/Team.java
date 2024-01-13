@@ -11,7 +11,7 @@ import java.util.List;
         allocationSize = 1,
         initialValue = 1
 )*/
-public class Team extends BaseEntity{
+public class Team {
 
     @Id
     @GeneratedValue(generator = "TEAM_SEQ_GENERATOR")
@@ -45,5 +45,14 @@ public class Team extends BaseEntity{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", members=" + members +
+                '}';
     }
 }

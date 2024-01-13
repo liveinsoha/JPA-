@@ -10,11 +10,17 @@ public class Album extends Item {
 
     String artist;
 
+    protected Album() {
+    }
+
+    public Album(String artist, int price) {
+        this.artist = artist;
+        super.price = price;
+    }
+
     public String getArtist() {
         return artist;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
+
 }
