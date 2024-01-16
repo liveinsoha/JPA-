@@ -44,7 +44,7 @@ public class Member {
 
     /**
      * 값타입 컬렉션은 주로 체크박스에서 값을 추적할 필요도 없을 때 사용.
-     * 주소는 주소만 추적해서 가져올 수도 있끼 대문에 값타입으로 사용해서는 안된다
+     * 주소는 주소만 추적해서 가져올 수도 있기 대문에 값타입으로 사용해서는 안된다
      */
     @ElementCollection
     @CollectionTable(name = "FAVORITE_FOODS",
@@ -64,6 +64,7 @@ public class Member {
             joinColumns = @JoinColumn(name = "MEMBER_ID"),
             inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
     private List<Product> products = new ArrayList<>();*/
+
 
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     List<Order> orders = new ArrayList<>();
